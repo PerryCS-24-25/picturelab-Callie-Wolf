@@ -10,9 +10,12 @@ public class PictureTester {
     /**
      * Method to test the PictureExplorer
      */
+    // Belgium by them Snapshots on Unsplash.
     public static void testExplorer() {
-        Picture beach = new Picture("beach.jpg");
-        beach.explore();   
+        Picture belgium = new Picture("Belgium.jpg");   
+        Picture posterBelgium = belgium.scale(0.5, 0.5);
+        posterBelgium.explore();
+        posterBelgium.write("posterBelgium.jpg");
     }
 
     /**
