@@ -136,6 +136,11 @@ public class PictureExplorer implements MouseMotionListener, ActionListener, Mou
      * 500% zoom level
      */
     private JMenuItem fiveHundred;
+    private JMenuItem close;
+    private JMenu File;
+    
+    
+    
 
     /**
      * The picture being explored
@@ -233,6 +238,9 @@ public class PictureExplorer implements MouseMotionListener, ActionListener, Mou
         hundredFifty = new JMenuItem("150%");
         twoHundred = new JMenuItem("200%");
         fiveHundred = new JMenuItem("500%");
+        File = new JMenu("File");
+
+        close= new JMenuItem("close");
 
         // add the action listeners
         twentyFive.addActionListener(this);
@@ -242,6 +250,7 @@ public class PictureExplorer implements MouseMotionListener, ActionListener, Mou
         hundredFifty.addActionListener(this);
         twoHundred.addActionListener(this);
         fiveHundred.addActionListener(this);
+        close.addActionListener(this);
 
         // add the menu items to the menus
         zoomMenu.add(twentyFive);
@@ -251,7 +260,9 @@ public class PictureExplorer implements MouseMotionListener, ActionListener, Mou
         zoomMenu.add(hundredFifty);
         zoomMenu.add(twoHundred);
         zoomMenu.add(fiveHundred);
+        File.add(close);
         menuBar.add(zoomMenu);
+        menuBar.add(File);
 
         // set the menu bar to this menu
         pictureFrame.setJMenuBar(menuBar);
@@ -345,6 +356,10 @@ public class PictureExplorer implements MouseMotionListener, ActionListener, Mou
             enableZoomItems();
             fiveHundred.setEnabled(false);
         }
+
+        if (a.getActionCommand().equals(close.getActionCommand())) { 
+            pictureFrame.dispose();
+        }
     }
 
     /**
@@ -403,7 +418,9 @@ public class PictureExplorer implements MouseMotionListener, ActionListener, Mou
                         rowIndex = picture.getHeight() - 1;
                     displayPixelInformation(colIndex, rowIndex);
                 }
+                
             });
+           
     }
 
     /**
@@ -579,7 +596,7 @@ public class PictureExplorer implements MouseMotionListener, ActionListener, Mou
             viewport.scrollRectToVisible(new Rectangle(viewX, viewY, rectWidth, rectHeight));
         }
     }
-
+   
     /**
      * Zooms in the on picture by scaling the image. It is extremely memory
      * intensive.
