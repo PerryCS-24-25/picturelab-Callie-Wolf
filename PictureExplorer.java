@@ -137,8 +137,10 @@ public class PictureExplorer implements MouseMotionListener, ActionListener, Mou
      */
     private JMenuItem fiveHundred;
     private JMenuItem close;
+    private JMenuItem open;
+    private JMenuItem save;
     private JMenu File;
-    
+    private JMenu filter;
     
     
 
@@ -238,9 +240,11 @@ public class PictureExplorer implements MouseMotionListener, ActionListener, Mou
         hundredFifty = new JMenuItem("150%");
         twoHundred = new JMenuItem("200%");
         fiveHundred = new JMenuItem("500%");
+        open= new JMenuItem("Open");
         File = new JMenu("File");
-
-        close= new JMenuItem("close");
+        close= new JMenuItem("Close");
+        save= new JMenuItem("Save");
+        filter= new JMenu("Filter");
 
         // add the action listeners
         twentyFive.addActionListener(this);
@@ -250,9 +254,15 @@ public class PictureExplorer implements MouseMotionListener, ActionListener, Mou
         hundredFifty.addActionListener(this);
         twoHundred.addActionListener(this);
         fiveHundred.addActionListener(this);
-        close.addActionListener(this);
+        open.addActionListener(this);
+        save.addActionListener(this);
 
         // add the menu items to the menus
+        menuBar.add(File);
+        File.add(close);
+        File.add(open);
+        File.add(save);
+        menuBar.add(zoomMenu);
         zoomMenu.add(twentyFive);
         zoomMenu.add(fifty);
         zoomMenu.add(seventyFive);
@@ -260,9 +270,12 @@ public class PictureExplorer implements MouseMotionListener, ActionListener, Mou
         zoomMenu.add(hundredFifty);
         zoomMenu.add(twoHundred);
         zoomMenu.add(fiveHundred);
-        File.add(close);
-        menuBar.add(zoomMenu);
-        menuBar.add(File);
+        menuBar.add(filter);
+       
+       
+        
+
+        
 
         // set the menu bar to this menu
         pictureFrame.setJMenuBar(menuBar);
@@ -360,6 +373,21 @@ public class PictureExplorer implements MouseMotionListener, ActionListener, Mou
         if (a.getActionCommand().equals(close.getActionCommand())) { 
             pictureFrame.dispose();
         }
+
+        if (a.getActionCommand().equals(open.getActionCommand())) { 
+           Picture photo = FileChooser.showOpenDialog(pictureFrame);
+       
+           if(photo != null)
+           {
+             photo.explore();
+           }
+       
+       }
+
+       if (a.getActionCommand().equals(save.getActionCommand())) { 
+           FileChooser.showSaveDialog(pictureFrame, this.picture);
+         
+    }
     }
 
     /**
