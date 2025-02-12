@@ -126,6 +126,110 @@ public class Picture extends SimplePicture {
         }
     }
 
+    public void keepOnlyBlue() {
+        Pixel[][] pixels = this.getPixels2D();
+        for (Pixel[] rowArray : pixels) {
+            for (Pixel pixelObj : rowArray) {
+                pixelObj.setRed(0);
+                pixelObj.setGreen(0);
+            }
+        }
+    }
+
+    public void keepOnlyRed() {
+        Pixel[][] pixels = this.getPixels2D();
+        for (Pixel[] rowArray : pixels) {
+            for (Pixel pixelObj : rowArray) {
+                pixelObj.setBlue(0);
+                pixelObj.setGreen(0);
+            }
+        }
+    }
+
+    public void keepOnlyGreen() {
+        Pixel[][] pixels = this.getPixels2D();
+        for (Pixel[] rowArray : pixels) {
+            for (Pixel pixelObj : rowArray) {
+                pixelObj.setBlue(0);
+                pixelObj.setRed(0);
+            }
+        }
+    }
+
+    public void negate() {
+        Pixel[][] pixels = this.getPixels2D();
+        for (Pixel[] rowArray : pixels) {
+            for (Pixel pixelObj : rowArray) {
+                int currentBlue= pixelObj.getBlue();
+                int currentRed= pixelObj.getRed();
+                int currentGreen= pixelObj.getGreen();
+                pixelObj.setBlue(255- currentBlue);
+                pixelObj.setRed(255-currentRed);
+                pixelObj.setGreen(255-currentGreen);
+            }
+        }
+    }
+
+    public void grayscale() {
+        Pixel[][] pixels = this.getPixels2D();
+        for (Pixel[] rowArray : pixels) {
+            for (Pixel pixelObj : rowArray) {
+                int currentBlue= pixelObj.getBlue();
+                int currentRed= pixelObj.getRed();
+                int currentGreen= pixelObj.getGreen();
+                int average = (currentBlue + currentRed+ currentGreen)/3;
+                pixelObj.setBlue(average);
+                pixelObj.setRed(average);
+                pixelObj.setGreen(average);
+            }
+        }
+    }
+    /* 
+    public void findsmallestRed()
+    {
+        int smallRed;
+        Pixel[][] pixels = this.getPixels2D();
+        for (Pixel[] rowArray : pixels) {
+            for (Pixel pixelObj : rowArray) {
+                 int redder= pixelObj.getRed();
+                 if()
+                
+            }
+        }
+
+    }
+
+    
+
+    public void FixUnderwater() {
+        Pixel[][] pixels = this.getPixels2D();
+        for (Pixel[] rowArray : pixels) {
+            for (Pixel pixelObj : rowArray) {
+                int currentBlue= pixelObj.getBlue();
+                int currentRed= pixelObj.getRed();
+                int currentGreen= pixelObj.getGreen();
+                
+            }
+        }
+    }
+*/
+
+    public void galaxy() {
+        Pixel[][] pixels = this.getPixels2D();
+        for (Pixel[] rowArray : pixels) {
+            for (Pixel pixelObj : rowArray) {
+                //int currentBlue= pixelObj.getBlue();
+                int currentRed= pixelObj.getRed();
+                int currentGreen= pixelObj.getGreen();
+                pixelObj.setGreen(currentGreen - currentRed);
+                pixelObj.setRed((currentRed*4)+30);
+
+            }
+        }
+    }
+
+    
+
     /**
      * Removes all the red from this image.
      */

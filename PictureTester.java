@@ -13,11 +13,12 @@ public class PictureTester {
     // Belgium by them Snapshots on Unsplash.
     public static void testExplorer() {
         Picture belgium = new Picture("Belgium.jpg");   
-        Picture posterBelgium = belgium.scale(0.5, 0.5);
+        Picture posterBelgium = belgium.scale(0.25, 0.25);
         posterBelgium.explore();
         posterBelgium.write("posterBelgium.jpg");
     }
 
+    
     /**
      * Method to test zeroBlue
      */
@@ -27,6 +28,49 @@ public class PictureTester {
         beach.zeroBlue();
         beach.explore();
     }
+
+    public static void keepOnlyBlueTest() {
+        Picture beach = new Picture("beach.jpg");
+        beach.explore();
+        beach.keepOnlyBlue();
+        beach.explore();
+    }
+
+    public static void testKeepOnlyRed() {
+        Picture swan = new Picture("swan.jpg");
+        swan.explore();
+        swan.keepOnlyRed();
+        swan.explore();
+    }
+
+    public static void testKeepOnlyGreen() {
+        Picture shatner = new Picture("shatner.jpg");
+        shatner.explore();
+        shatner.keepOnlyGreen();
+        shatner.explore();
+    }
+
+    public static void testNegate() {
+        Picture jenny = new Picture("jenny-red.jpg");
+        jenny.explore();
+        jenny.negate();
+        jenny.explore();
+    }
+
+    public static void testGrayscale() {
+        Picture belgium = new Picture("Belgium.jpg");
+        belgium.explore();
+        belgium.grayscale();
+        belgium.explore();
+    }
+
+    public static void testFixUnderwater() {
+        Picture water = new Picture("water.jpg");
+        water.explore();
+        water.FixUnderwater();
+        water.explore();
+    }
+    
 
     /**
      * Method to test mirrorVertical
@@ -75,15 +119,15 @@ public class PictureTester {
         // and comment out the ones you don't want
         // to run
 
-        testExplorer();
+       // testExplorer();
         //testScale();
         //testZeroBlue();
-        //testKeepOnlyBlue();
+        //keepOnlyBlueTest();
         //testKeepOnlyRed();
         //testKeepOnlyGreen();
         //testNegate();
-        //testGrayscale();
-        //testFixUnderwater();
+        // testGrayscale();
+        testFixUnderwater();
         //testMirrorVertical();
         //testMirrorTemple();
         //testMirrorArms();
