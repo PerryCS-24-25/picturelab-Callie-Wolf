@@ -141,6 +141,11 @@ public class PictureExplorer implements MouseMotionListener, ActionListener, Mou
     private JMenuItem save;
     private JMenu File;
     private JMenu filter;
+    private JMenuItem seperateColors;
+    private JMenuItem invertColors;
+    private JMenuItem grayscale;
+    private JMenuItem BlackandWhite;
+
     
     
 
@@ -245,6 +250,10 @@ public class PictureExplorer implements MouseMotionListener, ActionListener, Mou
         close= new JMenuItem("Close");
         save= new JMenuItem("Save");
         filter= new JMenu("Filter");
+        seperateColors= new JMenuItem("Seperate Colors");
+        invertColors= new JMenuItem("Invert Colors");
+        grayscale= new JMenuItem("Grayscale");
+        BlackandWhite= new JMenuItem("Black and White");
 
         // add the action listeners
         twentyFive.addActionListener(this);
@@ -256,12 +265,16 @@ public class PictureExplorer implements MouseMotionListener, ActionListener, Mou
         fiveHundred.addActionListener(this);
         open.addActionListener(this);
         save.addActionListener(this);
+        seperateColors.addActionListener(this);
+        invertColors.addActionListener(this);
+        grayscale.addActionListener(this);
+        BlackandWhite.addActionListener(this);
 
         // add the menu items to the menus
         menuBar.add(File);
-        File.add(close);
         File.add(open);
         File.add(save);
+        File.add(close);
         menuBar.add(zoomMenu);
         zoomMenu.add(twentyFive);
         zoomMenu.add(fifty);
@@ -271,6 +284,10 @@ public class PictureExplorer implements MouseMotionListener, ActionListener, Mou
         zoomMenu.add(twoHundred);
         zoomMenu.add(fiveHundred);
         menuBar.add(filter);
+        filter.add(seperateColors);
+        filter.add(invertColors);
+        filter.add(grayscale);
+        filter.add(BlackandWhite);
        
        
         
@@ -388,6 +405,10 @@ public class PictureExplorer implements MouseMotionListener, ActionListener, Mou
            FileChooser.showSaveDialog(pictureFrame, this.picture);
          
     }
+   // if (a.getActionCommand().equals(seperateColors.getActionCommand())) { 
+  
+      
+ //}
     }
 
     /**
