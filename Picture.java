@@ -184,6 +184,31 @@ public class Picture extends SimplePicture {
             }
         }
     }
+
+    public void BlackandWhite()
+    {
+        Pixel[][] pixels = this.getPixels2D();
+        for (Pixel[] rowArray : pixels) {
+            for (Pixel pixelObj : rowArray) {
+                int currentBlue= pixelObj.getBlue();
+                int currentRed= pixelObj.getRed();
+                int currentGreen= pixelObj.getGreen();
+                int average = (currentBlue + currentRed+ currentGreen)/3;
+               if(average>127)
+               {
+                pixelObj.setBlue(255);
+                pixelObj.setRed(255);
+                pixelObj.setGreen(255);
+               }
+               else if(average <= 127)
+               {
+                pixelObj.setBlue(0);
+                pixelObj.setRed(0);
+                pixelObj.setGreen(0);
+               }
+            }
+        }
+    }
     /* 
     public void findsmallestRed()
     {

@@ -264,6 +264,7 @@ public class PictureExplorer implements MouseMotionListener, ActionListener, Mou
         twoHundred.addActionListener(this);
         fiveHundred.addActionListener(this);
         open.addActionListener(this);
+        close.addActionListener(this);
         save.addActionListener(this);
         seperateColors.addActionListener(this);
         invertColors.addActionListener(this);
@@ -405,10 +406,41 @@ public class PictureExplorer implements MouseMotionListener, ActionListener, Mou
            FileChooser.showSaveDialog(pictureFrame, this.picture);
          
     }
-   // if (a.getActionCommand().equals(seperateColors.getActionCommand())) { 
+     if (a.getActionCommand().equals(seperateColors.getActionCommand())) { 
   
-      
- //}
+      Picture newPicRed= new Picture((SimplePicture)picture);
+      Picture newPicBlue= new Picture((SimplePicture)picture);
+      Picture newPicGreen= new Picture((SimplePicture)picture);
+      newPicRed.keepOnlyRed();
+      newPicRed.explore();
+      newPicBlue.keepOnlyBlue();
+      newPicBlue.explore();
+      newPicGreen.keepOnlyGreen();
+      newPicGreen.explore();
+    
+     }
+
+     if (a.getActionCommand().equals(invertColors.getActionCommand())) { 
+        Picture invertPic= new Picture((SimplePicture)picture);
+        invertPic.negate();
+        invertPic.explore();
+     }
+     
+     if (a.getActionCommand().equals(grayscale.getActionCommand())) { 
+
+       Picture grayScalePic= new Picture((SimplePicture)picture);
+       grayScalePic.grayscale();
+       grayScalePic.explore();
+ }
+
+     if (a.getActionCommand().equals(BlackandWhite.getActionCommand())) { 
+
+    Picture blackandWhitePic= new Picture((SimplePicture)picture);
+    blackandWhitePic.BlackandWhite();
+    blackandWhitePic.explore();
+}
+
+
     }
 
     /**
