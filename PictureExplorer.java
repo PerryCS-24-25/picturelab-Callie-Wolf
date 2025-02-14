@@ -145,6 +145,11 @@ public class PictureExplorer implements MouseMotionListener, ActionListener, Mou
     private JMenuItem invertColors;
     private JMenuItem grayscale;
     private JMenuItem BlackandWhite;
+    private JMenuItem MirrorToptoBottom;
+    private JMenuItem MirrorRighttoLeft;
+    private JMenuItem MirrorBottomtoTop;
+    private JMenuItem MirrorLefttoRight;
+
 
     
     
@@ -254,6 +259,10 @@ public class PictureExplorer implements MouseMotionListener, ActionListener, Mou
         invertColors= new JMenuItem("Invert Colors");
         grayscale= new JMenuItem("Grayscale");
         BlackandWhite= new JMenuItem("Black and White");
+        MirrorBottomtoTop= new JMenuItem("Mirror Bottom to Top");
+        MirrorLefttoRight= new JMenuItem("Mirror Left to Right");
+        MirrorRighttoLeft= new JMenuItem("Mirror Right to Left");
+        MirrorToptoBottom= new JMenuItem("Mirror Top to Bottom");
 
         // add the action listeners
         twentyFive.addActionListener(this);
@@ -270,6 +279,10 @@ public class PictureExplorer implements MouseMotionListener, ActionListener, Mou
         invertColors.addActionListener(this);
         grayscale.addActionListener(this);
         BlackandWhite.addActionListener(this);
+        MirrorBottomtoTop.addActionListener(this);
+        MirrorLefttoRight.addActionListener(this);
+        MirrorRighttoLeft.addActionListener(this);
+        MirrorToptoBottom.addActionListener(this);
 
         // add the menu items to the menus
         menuBar.add(File);
@@ -289,6 +302,10 @@ public class PictureExplorer implements MouseMotionListener, ActionListener, Mou
         filter.add(invertColors);
         filter.add(grayscale);
         filter.add(BlackandWhite);
+        filter.add(MirrorToptoBottom);
+        filter.add(MirrorRighttoLeft);
+        filter.add(MirrorBottomtoTop);
+        filter.add(MirrorLefttoRight);
        
        
         
