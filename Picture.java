@@ -299,12 +299,12 @@ public class Picture extends SimplePicture {
         {
             topPixel = pixels[row][col];
             botPixel = pixels[height-1-row][col];
-            topPixel.setColor(botPixel.getColor());
+            botPixel.setColor(topPixel.getColor());
         }
     }
   }
 
-  public void MirrorToptoBottom()
+  public void mirrorHorizontalBotToTop()
   {
     Pixel[][] pixels = this.getPixels2D();
     Pixel topPixel = null;
@@ -316,7 +316,7 @@ public class Picture extends SimplePicture {
         {
             topPixel = pixels[row][col];
             botPixel = pixels[height-1-row][col];
-            botPixel.setColor(topPixel.getColor());
+            topPixel.setColor(botPixel.getColor());
         }
     }
   }

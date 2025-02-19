@@ -473,14 +473,14 @@ if (a.getActionCommand().equals(MirrorRighttoLeft.getActionCommand())) {
 if (a.getActionCommand().equals(MirrorBottomtoTop.getActionCommand())) { 
 
     Picture BotTopPic= new Picture((SimplePicture)picture);
-    BotTopPic.mirrorHorizontal();
+    BotTopPic.mirrorHorizontalBotToTop();
     BotTopPic.explore();
 }
 
 if (a.getActionCommand().equals(MirrorToptoBottom.getActionCommand())) { 
 
     Picture TopBotPic= new Picture((SimplePicture)picture);
-    TopBotPic.MirrorToptoBottom();
+    TopBotPic.mirrorHorizontal();
     TopBotPic.explore();
 }
 
