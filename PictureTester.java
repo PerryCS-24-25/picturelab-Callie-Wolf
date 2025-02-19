@@ -97,6 +97,16 @@ public class PictureTester {
         swan.mirrorHorizontal();
         swan.explore();
     }
+
+    public static void testMirrorToptoBottom()
+    {
+        Picture swan= new Picture("swan.jpg");
+        swan.explore();
+        swan.MirrorToptoBottom();
+        swan.explore();
+    }
+
+   
     /**
      * Method to test mirrorTemple
      */
@@ -160,5 +170,6 @@ public class PictureTester {
         //testClearBlueOverValue(200);
         //testGetAverageForColumn(0);
         testmirrorHorizontal();
+        testMirrorToptoBottom();
     }
 }

@@ -292,14 +292,31 @@ public class Picture extends SimplePicture {
     Pixel[][] pixels = this.getPixels2D();
     Pixel topPixel = null;
     Pixel botPixel = null;
-    int width = pixels[0].length;
+    int height = pixels.length;
     for (int row = 0; row < pixels.length; row++)
     {
-        for (int col = 0; col < width / 2; col++)
+        for (int col = 0; col < height / 2; col++)
         {
             topPixel = pixels[row][col];
-            botPixel = pixels[width-1-row][col];
+            botPixel = pixels[height-1-row][col];
             topPixel.setColor(botPixel.getColor());
+        }
+    }
+  }
+
+  public void MirrorToptoBottom()
+  {
+    Pixel[][] pixels = this.getPixels2D();
+    Pixel topPixel = null;
+    Pixel botPixel = null;
+    int height = pixels.length;
+    for (int row = 0; row < pixels.length; row++)
+    {
+        for (int col = 0; col < height / 2; col++)
+        {
+            topPixel = pixels[row][col];
+            botPixel = pixels[height-1-row][col];
+            botPixel.setColor(topPixel.getColor());
         }
     }
   }

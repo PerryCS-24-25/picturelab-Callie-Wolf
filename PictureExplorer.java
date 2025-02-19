@@ -456,7 +456,33 @@ public class PictureExplorer implements MouseMotionListener, ActionListener, Mou
     blackandWhitePic.BlackandWhite();
     blackandWhitePic.explore();
 }
+     if (a.getActionCommand().equals(MirrorLefttoRight.getActionCommand())) { 
 
+    Picture leftRightPic= new Picture((SimplePicture)picture);
+    leftRightPic.mirrorVertical();
+    leftRightPic.explore();
+}
+
+if (a.getActionCommand().equals(MirrorRighttoLeft.getActionCommand())) { 
+
+    Picture RightLeftPic= new Picture((SimplePicture)picture);
+    RightLeftPic.mirrorVerticalRightToLeft();
+    RightLeftPic.explore();
+}
+
+if (a.getActionCommand().equals(MirrorBottomtoTop.getActionCommand())) { 
+
+    Picture BotTopPic= new Picture((SimplePicture)picture);
+    BotTopPic.mirrorHorizontal();
+    BotTopPic.explore();
+}
+
+if (a.getActionCommand().equals(MirrorToptoBottom.getActionCommand())) { 
+
+    Picture TopBotPic= new Picture((SimplePicture)picture);
+    TopBotPic.MirrorToptoBottom();
+    TopBotPic.explore();
+}
 
     }
 
